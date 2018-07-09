@@ -12,6 +12,8 @@ var maxChar = '';
 
 const charMap = {};
 
+//Define object using the iterable through the string
+
 for(var i=0; i<str.length; i++){
 	if(!charMap[str[i]]){
 		charMap[str[i]] = 1;
@@ -21,6 +23,7 @@ for(var i=0; i<str.length; i++){
 	}
 }
 
+//Check for character that popped up max time
 
 	for(let char in charMap){
 		if(charMap[char] > max){
