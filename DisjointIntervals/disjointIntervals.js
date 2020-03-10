@@ -28,4 +28,3 @@ summaryRanges.prototype.getIntervals = function() {
 
     return temp
 }
-
