@@ -4,11 +4,14 @@ var TreeNode = function(val){
 }
 
 var PreOrder = function(root) {
-    let stack = [], arr = [];
+    let stack = [root], arr = [];
+
+    if(root  == null) return arr;
 
     while(stack.length) {
-        if(root) {
-
-        }
+        let node = stack.pop();
+        arr.push(node.val);
+        if(node.right) stack.push(node.right);
+        if(node.left) stack.push(node.left);
     }
 }

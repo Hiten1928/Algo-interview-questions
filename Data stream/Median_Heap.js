@@ -5,17 +5,14 @@ let medianFinder = function() {
 
 
 medianFinder.prototype.addNum = (num) => {
-    if(this.maxHeap.peek() === null || num < this.maxHeap.peek()){
-        this.maxHeap.add(num);
-    } else {
-        this.minHeap.add(num);
-    }
+   this.maxHeap.add(num);
+   this.minHeap.add(this.maxHeap.peek());
+   this.maxHeap.poll();
 
-    if(this.maxHeap.size - this.minHeap.size > 1){
-        this.minHeap.add(this.minHeap.poll());
-    } else if(this.maxHeap.size - this.minHeap.size > 1){
-        this.maxHeap.add(this.maxHeap.poll());
-    }
+   if(this.maxHeap.size < this.minHeap.size){
+       this.maxHeap.add(this.minHeap.peek())
+       this.minHeap.poll()
+   }
 };
 
 medianFinder.prototype.getMedian = () => {
